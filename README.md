@@ -1,3 +1,5 @@
+[![Gitpod ready-to-code](https://img.shields.io/badge/Gitpod-ready--to--code-blue?logo=gitpod)](https://gitpod.io/#https://github.com/firebase/emulators-codelab)
+
 ## How to use this repository
 
 This repository is meant to be used with the [Firestore and Functions Emulator

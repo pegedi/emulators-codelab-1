@@ -27,7 +27,25 @@ export async function onDocumentReady(firebaseApp) {
   console.log("Firebase Config", JSON.stringify(firebaseApp.options));
 
   const db = firebaseApp.firestore();
+
+  console.log(window.location.hostname);
+
+  if (window.location.hostname === "localhost") {
+      console.log("localhost detected");
+      db.settings({
+           host: "localhost:8080",
+           ssl: false
+      });
+    };
+  if (window.location.hostname.substring(window.location.hostname.length - 9) === "gitpod.io") {
+      console.log("gitpod host Detected");
+      db.settings({
+           host: "window.location.hostname",
+           ssl: false
+      });
+  };
   
+
   const auth = firebaseApp.auth();
   const homePage = new HomePage(db, auth);
   mount(document.body, homePage);
