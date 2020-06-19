@@ -44,7 +44,7 @@ export async function onDocumentReady(firebaseApp) {
 //           ssl: false
 //      });
       db.settings({
-           host: "8080-dfbdc9d4-05c5-4c00-9c3b-bcd077afb9eb.ws-eu01.gitpod.io:8080",
+           host: 'https://8080-ad16650c-01dd-4779-bda4-ddff48e1d16e.ws-eu01.gitpod.io/',
            ssl: false
       });
   };
