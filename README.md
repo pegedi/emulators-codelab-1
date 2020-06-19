@@ -20,6 +20,11 @@ Please read and follow the steps in the [CONTRIBUTING.md](CONTRIBUTING.md)
 ## License
 See [LICENSE](LICENSE)
 
+## firebase settings
+1. create firebase project
+2. create firestore db
+3. enable anonymous authentication
+
 ## steps:
 
     $ cd codelab-initial-state/

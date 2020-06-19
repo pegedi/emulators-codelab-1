@@ -39,8 +39,12 @@ export async function onDocumentReady(firebaseApp) {
     };
   if (window.location.hostname.substring(window.location.hostname.length - 9) === "gitpod.io") {
       console.log("gitpod host Detected");
+//      db.settings({
+//           host: "window.location.hostname",
+//           ssl: false
+//      });
       db.settings({
-           host: "window.location.hostname",
+           host: "8080-dfbdc9d4-05c5-4c00-9c3b-bcd077afb9eb.ws-eu01.gitpod.io:8080",
            ssl: false
       });
   };
@@ -193,6 +197,14 @@ class HomePage {
 
   addToCart(id, itemData) {
     console.log("addToCart", id, JSON.stringify(itemData));
+
+    // ADD These lines from codelab: Getting started with the Firebase Local Emulator Suite
+
+    if (this.auth.currentUser === null){
+        this.showError("You must be signed in!");
+        return;
+    }
+
     return this.db
       .collection("carts")
       .doc(this.auth.currentUser.uid)
