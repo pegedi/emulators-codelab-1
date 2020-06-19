@@ -19,3 +19,15 @@ Please read and follow the steps in the [CONTRIBUTING.md](CONTRIBUTING.md)
 
 ## License
 See [LICENSE](LICENSE)
+
+## steps:
+
+    $ cd codelab-initial-state/
+    $ cd functions && npm install && cd -
+    $ npm install -g firebase-tools
+    $ firebase --version
+    $ firebase login --no-localhost
+    $ firebase projects:list
+    $ firebase use --add
+    $ firebase emulators:start
+
