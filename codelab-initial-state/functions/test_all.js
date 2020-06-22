@@ -57,10 +57,10 @@ describe("shopping cart creation", () => {
 
   it("cannot be created by user other than the cart owner", async () => {
     // All requests are being made by Alice; testing that she cannot create
-    // a cart owned by a different user.
+    // a cart owned by a different user.assertFails
     await firebase.assertFails(db.doc("carts/adamsCart").set({
       ownerUID: "adam",
-      items: seedItems
+      total: 0
     }));
   });
 });
