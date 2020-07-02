@@ -19,6 +19,7 @@
       "port": 5001
     },
     "firestore": {
+      "host": "172.21.133.77",
       "port": 8080
     },
     "hosting": {

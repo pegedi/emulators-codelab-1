@@ -11,6 +11,10 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
+// https://firebase.google.com/docs/firestore/security/test-rules-emulator
+// npm --prefix=functions test test_all
+
+
 const fs = require('fs');
 const path = require("path");
 
@@ -40,7 +44,7 @@ describe("shopping cart creation", () => {
   const projectId = "cart-security-tests";
   const admin = firebase.initializeAdminApp({ projectId}).firestore();
   const db = firebase.initializeTestApp({
-    projectId: projectId,
+    projectId: TEST_FIREBASE_PROJECT_ID,
     auth: aliceAuth
   }).firestore();
 
@@ -48,13 +52,18 @@ describe("shopping cart creation", () => {
     firebase.clearFirestoreData({projectId: "emulator-codelab-dev"});
   });
 
+  
+  // firebase.clearFirestoreData({
+  //   projectId: TEST_FIREBASE_PROJECT_ID
+  // });
+
+
   it('can be created by the cart owner', async () => {
     await firebase.assertSucceeds(db.doc("carts/alicesCart").set({
       ownerUID: "alice",
       total: 0
     }));
   });
-
   it("cannot be created by user other than the cart owner", async () => {
     // All requests are being made by Alice; testing that she cannot create
     // a cart owned by a different user.
@@ -63,6 +72,8 @@ describe("shopping cart creation", () => {
       items: seedItems
     }));
   });
+
+
 });
 
 describe("shopping cart reads, updates, and deletes", () => {

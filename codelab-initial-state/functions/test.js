@@ -11,6 +11,10 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
+// 
+// run in the codelab-initial-state folder:
+// npm --prefix=functions test
+
 const fs = require('fs');
 const path = require("path");
 
@@ -61,8 +65,8 @@ describe("shopping carts", () => {
   });
 
   it('can be created by the cart owner', async () => {
-    await firebase.assertSucceeds(db.doc("carts/alicesCart").set({
-      ownerUID: "alice",
+    await firebase.assertFails(db.doc("carts/alicesCart").set({
+      ownerUID: "adam",
       total: 0
     }));
   });
