@@ -21,7 +21,7 @@ const path = require("path");
 const TEST_FIREBASE_PROJECT_ID = "test-firestore-rules-project";
 
 // TODO: Change this to your real Firebase Project ID
-const REAL_FIREBASE_PROJECT_ID = "changeme";
+const REAL_FIREBASE_PROJECT_ID = "codelab-fbase-emulator";
 
 const firebase = require("@firebase/testing");
 
@@ -64,7 +64,7 @@ describe("shopping carts", () => {
     firebase.clearFirestoreData({ projectId: TEST_FIREBASE_PROJECT_ID });
   });
 
-  it('can be created by the cart owner', async () => {
+  it('cannot be created by other than the cart owner', async () => {
     await firebase.assertFails(db.doc("carts/alicesCart").set({
       ownerUID: "adam",
       total: 0
@@ -141,7 +141,7 @@ describe("shopping cart items", async () => {
   });
 });
 
-describe.skip("adding an item to the cart recalculates the cart total. ", () => {
+describe("adding an item to the cart recalculates the cart total. ", () => {
   let unsubscribe;
 
   after(() => {
