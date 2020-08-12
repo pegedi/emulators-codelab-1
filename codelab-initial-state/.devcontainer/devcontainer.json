@@ -1,0 +1,21 @@
+{
+    "name": "JS ENV",
+    "dockerfile": "Dockerfile",
+    "appPort": [3000, 4000, 4001, 4400, 4500, 5000, 8080, 9005, 5001],
+    "runArgs": ["-u", "node"],
+    "settings": {
+		"terminal.integrated.shell.linux": "/bin/bash",
+		"workbench.colorTheme": "Cobalt2",
+		"terminal.integrated.automationShell.linux": "/bin/sh"
+	},
+    "postCreateCommand": "cd functions && npm install && cd -",
+    "extensions": [
+		"esbenp.prettier-vscode",
+		"wesbos.theme-cobalt2",
+		"ms-azuretools.vscode-docker"
+	],
+	"dockerFile": "Dockerfile",
+	"mounts": [
+		"source=/var/run/docker.sock,target=/var/run/docker-host.sock,type=bind"
+	]
+}
