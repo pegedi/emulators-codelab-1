@@ -37,6 +37,13 @@ export async function onDocumentReady(firebaseApp) {
            ssl: false
       });
     };
+  if (window.location.hostname === "127.0.0.1") {
+    console.log ("127.0.0.1 Host datetected");
+    db.settings({
+      host: "0.0.0.0:8080",
+      ssl: false
+    });
+  }
   if (window.location.hostname.substring(window.location.hostname.length - 9) === "gitpod.io") {
       console.log("gitpod host Detected");
 //      db.settings({
