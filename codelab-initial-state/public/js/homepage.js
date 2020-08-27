@@ -38,9 +38,9 @@ export async function onDocumentReady(firebaseApp) {
       });
     };
   if (window.location.hostname === "127.0.0.1") {
-    console.log ("127.0.0.1 Host datetected");
+    console.log ("127.0.0.1 Host datetected2");
     db.settings({
-      host: "0.0.0.0:8080",
+      host: "127.0.0.1:8080",
       ssl: false
     });
   }
