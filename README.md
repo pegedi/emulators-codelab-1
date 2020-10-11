@@ -35,4 +35,8 @@ See [LICENSE](LICENSE)
     $ firebase projects:list
     $ firebase use --add
     $ firebase emulators:start
+    
+## Resources
+https://medium.com/better-programming/dockerize-your-development-environment-in-vs-code-d55ba8d705a9
+https://www.youtube.com/watch?v=fPtGgOJykTM&list=WL&index=12&t=0s
 
